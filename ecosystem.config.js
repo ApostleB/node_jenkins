@@ -7,7 +7,7 @@ module.exports = {
   apps: [
     {
       name: 'NODE CI/CD',
-      script: './src/app.js',
+      script: './src/index.js',
       env: {
         NODE_ENV: process.env.NODE_ENV,
         PORT: process.env.PORT,
@@ -29,29 +29,8 @@ module.exports = {
       }
     }
   ],
-
-  // 배포 설정 (선택 사항)
-  deploy: {
-    production: {
-      user: 'root',
-      host: '222.109.39.10',
-      ref: 'origin/main',
-      repo: 'git@github.com:ApostleB/node_jenkins.git',
-      path: '/var/www/production',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
-    },
-    development: {
-      user: 'root',
-      host: '2222.109.39.10',
-      ref: 'origin/dev',
-      repo: 'git@github.com:ApostleB/node_jenkins.git',
-      path: '/var/www/development',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env development'
-    }
-  }
 };
 
-// 설정을 동적으로 변경하는 부분
 const appConfig = module.exports.apps[0];
 
 if (isProduction) {
