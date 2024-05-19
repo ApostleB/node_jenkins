@@ -6,7 +6,7 @@ const isProduction = process.env.NODE_ENV === 'prod';
 module.exports = {
   apps: [
     {
-      name: 'NODE CI/CD',
+      name: 'NODE CI/CD Jenkins Build',
       script: './src/index.js',
       env: {
         NODE_ENV: process.env.NODE_ENV,
